@@ -1,6 +1,12 @@
+{% extends "base.html" %}
 
+{% block content %}
+<br>
+<br>
+<br><br>
+<br><br>
 <md-whiteframe ng-app="macsite" ng-controller="macsiteController" class="md-whiteframe-4dp" flex-gt-sm layout="column" layout-padding layout-margin>
-    <div class="md-display-1" >Student Registration</div>
+    <div class="md-display-1" layout-align="center centeraa">Student Registration</div>
     <form name="RegistrationForm" layout="column" novalidate>
         <h4 class="md-title">Personal Info</h4>
         <div layout="row">
@@ -96,3 +102,6 @@
         </div>
     </form>
 </md-whiteframe>
+<br>
+<br><br><br>
+{% endblock %}
