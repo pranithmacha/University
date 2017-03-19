@@ -8,18 +8,27 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-@login_required
 def home(request):
     """
     :param request:
     :return:
     """
+    user = request.user
+    if user.is_authenticated():
+        return render(request, 'faculty/faculty_home.html', {})
+    else:
+        return render(request, 'home.html', {})
 
-    logger.info("getting home page for {0}".format(request.user.username))
-    role = "faculty"
-    if role == "faculty":
-        return render(request, "faculty/faculty_home.html", {})
-    return render(request, 'index.html', {})
+
+@login_required
+def login_success(request):
+    """
+    :param request:
+    :return:
+    """
+
+    logger.info("{0} logged in successfully! getting home page".format(request.user.username))
+    return redirect(to=reverse('home'))
 
 
 def student_registration(request):
@@ -37,20 +46,11 @@ def upload(request):
         })
 
 
-@login_required
-def login(request):
-    """
-    login for all users
-    check user group/role
-    forward to respective home page
-    :param request:
-    :return:
-    """
-    role_based_login_url = ""
-    return redirect(reverse(role_based_login_url))
-
-
 def about(request):
-    return render(request, "", {})
+    return render(request, "about.html", {})
+
+
+def contact(request):
+    return render(request, "contact.html", {})
 
 

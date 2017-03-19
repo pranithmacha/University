@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<br>
+<br><br>
+<br><br>
+<md-whiteframe ng-app="macsite" ng-controller="macsiteController" class="md-whiteframe-4dp" flex-gt-sm layout="column" layout-padding layout-margin>
+    <div class="md-display-1" layout-align="center centeraa">Student Registration</div>
+    <form name="RegistrationForm" layout="column" novalidate method="POST" action="{% url 'registration' %}">
+        {% csrf_token %}
+        <h4 class="md-title">Personal Info</h4>
+        <div layout="row">
+        <md-input-container flex>
+            <label>First Name</label>
+            <input type="text" name="firstname" required ng-model="student.firstName">
+        </md-input-container>
+        <md-input-container flex>
+            <label>Middle Name</label>
+            <input type="text" name="middlename" required ng-model="student.middleName">
+        </md-input-container>
+        <md-input-container flex>
+            <label>Last Name</label>
+            <input type="text" name="lastname" required ng-model="student.lastName">
+        </md-input-container>
+        </div>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>User Type</label>
+            <md-select ng-model="student.userType">
+              <md-option ng-value="student">student</md-option>
+              <md-option ng-value="staff">staff</md-option>
+              <md-option ng-value="management">management</md-option>
+            </md-select>
+        </md-input-container>
+        <div layout="row">
+        <md-input-container flex>
+            <label>Father's First Name</label>
+            <input type="text" name="ffirstname" required ng-model="student.fatherFirstName">
+        </md-input-container>
+        <md-input-container flex>
+            <label>Father's Last Name</label>
+            <input type="text" name="flastname" required ng-model="student.fatherLastName">
+        </md-input-container>
+        </div>
+        <div layout="row">
+        <md-input-container flex>
+            <label>Mother's First Name</label>
+            <input type="text" name="mfirstname" required ng-model="student.motherFirstName">
+        </md-input-container>
+        <md-input-container flex>
+            <label>Father's Last Name</label>
+            <input type="text" name="mlastname" required ng-model="student.motherLastName">
+        </md-input-container>
+        </div>
+        <md-divider></md-divider>
+        <h3 class="md-subhead">Contact Info</h3class>
+        <div layout="row">
+        <md-input-container flex>
+            <label>User Type</label>
+            <md-select ng-model="student.phoneType">
+              <md-option ng-value="cell">cell</md-option>
+              <md-option ng-value="work">work</md-option>
+              <md-option ng-value="home">home</md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Phone Number</label>
+            <input type="text" name="lastname" required ng-model="student.PhoneNum">
+        </md-input-container>
+        </div>
+        <md-input-container flex>
+            <label>Email</label>
+            <input type="email" name="email" required ng-model="student.email">
+        </md-input-container>
+        <md-divider></md-divider>
+        <h3 class="md-subhead">Address Information</h3>
+        <div layout="row">
+        <md-input-container flex>
+            <label>Address Line1</label>
+            <input type="text" name="AddressLine1" required ng-model="student.AddressLine1">
+        </md-input-container>
+        <md-input-container flex>
+            <label>Address Line2</label>
+            <input type="text" name="AddressLine2" required ng-model="student.AddressLine2">
+        </md-input-container>
+        </div>
+        <div layout="row">
+        <md-input-container flex>
+            <label>city</label>
+            <input type="text" name="city" required ng-model="student.city">
+        </md-input-container>
+        <md-input-container flex>
+            <label>state</label>
+            <input type="text" name="state" required ng-model="student.state">
+        </md-input-container>
+        <md-input-container flex>
+            <label>zip</label>
+            <input type="text" name="zip" required ng-model="student.zip">
+        </md-input-container>
+        </div>
+        <div layout="column" layout-align="center center">
+            <!--<md-button ng-click="submit()" class="md-primary md-accent">submit</md-button>-->
+            <input type="submit" value="submit" class="md-primary md-accent">
+        </div>
+    </form>
+</md-whiteframe>
+<br>
+<br><br><br>
+{% endblock %}

@@ -131,7 +131,7 @@ iAUTHENTICATION_BACKENDS = [
 ]
 # AUTH_USER_MODEL = 'auth.User'
 AUTH_USER_MODEL = 'commons.UserProfile'
-LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGIN_REDIRECT_URL = reverse_lazy('login_success')
 LOGIN_URL = reverse_lazy('login')
 # LOGOUT_REDIRECT_URL = reverse_lazy('lo')
 

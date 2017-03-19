@@ -7,7 +7,7 @@
         $interpolateProvider.endSymbol('$}');
     });
     macsite.controller('macsiteController',function($scope){
-        $scope.value="navya";
+        $scope.value="";
     })
 
 })();

@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1> home page, bitch!!</h1>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 
-<a href="{% url 'logout'%}">logout</a>
-</body>
-</html>
+ <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="{% get_static_prefix %}img/profile.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">University Project</span>
+                        <hr class="star-light">
+                        <span class="skills">I have not failed. I've just found 10,000 ways that do not work - Nikola Tesla</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+{% endblock %}

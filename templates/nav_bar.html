@@ -6,7 +6,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">University Project</a>
+                <a class="navbar-brand" href="{% url 'home' %}">University Project</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,14 +16,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
+                        <a href="{% url 'about' %}">About</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="{% url 'contact' %}">Contact</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                    {% if not user.is_authenticated %}
+                     <li class="page-scroll">
+                        <a href="{% url 'login' %}">Login</a>
                     </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                      <li class="page-scroll">
                         <a href="{% url 'logout'%}">Logout</a>
