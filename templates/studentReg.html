@@ -26,9 +26,9 @@
         <md-input-container class="md-block" flex-gt-sm>
             <label>User Type</label>
             <md-select ng-model="student.userType">
-              <md-option ng-value="student">student</md-option>
-              <md-option ng-value="staff">staff</md-option>
-              <md-option ng-value="management">management</md-option>
+              <md-option value="student">student</md-option>
+              <md-option value="staff">staff</md-option>
+              <md-option value="management">management</md-option>
             </md-select>
         </md-input-container>
         <div layout="row">
@@ -52,14 +52,14 @@
         </md-input-container>
         </div>
         <md-divider></md-divider>
-        <h3 class="md-subhead">Contact Info</h3class>
+        <h3 class="md-subhead">Contact Info</h3>
         <div layout="row">
         <md-input-container flex>
             <label>User Type</label>
             <md-select ng-model="student.phoneType">
-              <md-option ng-value="cell">cell</md-option>
-              <md-option ng-value="work">work</md-option>
-              <md-option ng-value="home">home</md-option>
+              <md-option value="cell">cell</md-option>
+              <md-option value="work">work</md-option>
+              <md-option value="home">home</md-option>
             </md-select>
         </md-input-container>
         <md-input-container flex>
@@ -69,7 +69,12 @@
         </div>
         <md-input-container flex>
             <label>Email</label>
-            <input type="email" name="email" required ng-model="student.email">
+            <input type="email" name="email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" ng-model="student.email">
+            <div ng-messages="RegistrationForm.email.$error" role="alert">
+                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     Your email must be between 10 and 100 characters long and look like an e-mail address.
+                </div>
+        </div>
         </md-input-container>
         <md-divider></md-divider>
         <h3 class="md-subhead">Address Information</h3>
