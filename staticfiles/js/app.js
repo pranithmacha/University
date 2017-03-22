@@ -1,6 +1,6 @@
 (function(){
 
-	var macsite = angular.module('macsite', ['ngMaterial','ngRoute']);
+	var macsite = angular.module('macsite', ['ngMaterial','ngRoute','ngMessages']);
 
     macsite.config(function($interpolateProvider) {
         $interpolateProvider.startSymbol('{$');
