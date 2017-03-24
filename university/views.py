@@ -26,11 +26,11 @@ def login_success(request):
     :param request:
     :return:
     """
-
     logger.info("{0} logged in successfully! getting home page".format(request.user.username))
     return redirect(to=reverse('home'))
 
 
+@login_required
 def student_registration(request):
     return render(request, 'students/student_registration.html', {})
 
