@@ -7,23 +7,21 @@
 <br><br>
 <md-whiteframe ng-app="macsite" ng-controller="macsiteController" class="md-whiteframe-4dp" flex-gt-sm layout="column" layout-padding layout-margin>
     <div class="md-display-1" layout-align="center centeraa">Student Registration</div>
-    <form name="RegistrationForm" layout="column" novalidate>
+    <form name="RegistrationForm" layout="column" novalidate method="POST" action="{% url 'registration' %}">
+        {% csrf_token %}
         <h4 class="md-title">Personal Info</h4>
         <div layout="row">
         <md-input-container flex>
             <label>First Name</label>
-            <input type="text" name="firstname" required ng-model="student.firstName">
+            <input type="text" name="first_name" id="first_name" required ng-model="student.firstName">
             <div ng-messages="RegistrationForm.firstname.$error" md-auto-hide="false" >
                 <div ng-message="required">This is required.</div>
             </div>
         </md-input-container>
-        <md-input-container flex>
-            <label>Middle Name</label>
-            <input type="text" name="middlename" required ng-model="student.middleName">
-        </md-input-container>
+
         <md-input-container flex>
             <label>Last Name</label>
-            <input type="text" name="lastname" required ng-model="student.lastName">
+            <input type="text" name="last_name" id="last_name" required ng-model="student.lastName">
             <div ng-messages="RegistrationForm.lastname.$error">
                 <div ng-message="required">This is required.</div>
             </div>
@@ -31,12 +29,12 @@
         </div>
         <md-input-container class="md-block" flex-gt-sm>
             <label>User Type</label>
-            <md-select name="usertype" required ng-model="student.userType">
+            <md-select name="user_type" id="user_type" required ng-model="student.userType">
               <md-option value="student">student</md-option>
               <md-option value="staff">staff</md-option>
               <md-option value="management">management</md-option>
             </md-select>
-            <div ng-messages="RegistrationForm.usertype.$error">
+            <div ng-messages="RegistrationForm.user_type.$error">
                 <div ng-message="required">This is required.</div>
             </div>
         </md-input-container>
@@ -199,7 +197,7 @@
             </div>
             </div>
         <div layout="column" layout-align="center center">
-            <md-button ng-click="submit()" class="md-primary md-accent">submit</md-button>
+            <input type="submit" class="md-primary md-accent">
         </div>
     </form>
 </md-whiteframe>
